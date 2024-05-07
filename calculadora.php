@@ -71,34 +71,47 @@
 
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora</title>
     <style>
-    body {
-        background-color: darkblue;
-    }
+        body{
+        background-color:darkblue;
+        font-weight: 400;
+        font-style: normal;
+        }
 
-    h1 {
-        font-weight: 100;
-        text-align: center;
-    }
+        h1{
+            text-align: center;
+            font-size: 70px;
+            margin: 0px;
+            padding: 0px;
+        }
 
-    .calculadora {
-        background-color: white;
-        border-radius: 10px;
-        padding: 30px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        margin-left: 20%;
-        margin-right: 20%;
-        margin-top: 5%;
+        .calculadora {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin-left: 20%;
+            margin-right: 20%;
+            margin-top: 5%;
+            background-color: gray;
+        }
 
-    }
+        .historico, .resposta, input, option, select{
+            color: black;
+            background-color:white;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px;
+        }
+        label{
+            font-size: 20px;
+        }
     </style>
 </head>
-
 <body>
     <div class="calculadora">
         <h1>Calculadora PHP</h1>
@@ -106,31 +119,22 @@
         <form action="calculadora.php" method="POST">
 
             <br><label for="numero1"> Numero 1: </label>
-            <input type="number" name="numero1" id="numero1" ;
-                value="<?php echo isset($numero1_salvo) ? $numero1_salvo : ''; ?>">
+            <input type="number" name="numero1" id="numero1" style="font-family: Rationale, sans-serif;" value="<?php echo isset($numero1_salvo) ? $numero1_salvo : ''; ?>">
 
             <label for="operacao">Operação:</label>
             <select name="operacao" id="operacao">
-                <option value="+" <?php echo (isset($operacao_salva) && $operacao_salva == '+') ? 'selected' : ''; ?>>+
-                </option>
-                <option value="-" <?php echo (isset($operacao_salva) && $operacao_salva == '-') ? 'selected' : ''; ?>>-
-                </option>
-                <option value="*" <?php echo (isset($operacao_salva) && $operacao_salva == '*') ? 'selected' : ''; ?>>*
-                </option>
-                <option value="/" <?php echo (isset($operacao_salva) && $operacao_salva == '/') ? 'selected' : ''; ?>>/
-                </option>
-                <option value="^" <?php echo (isset($operacao_salva) && $operacao_salva == '^') ? 'selected' : ''; ?>>^
-                </option>
-                <option value="!" <?php echo (isset($operacao_salva) && $operacao_salva == '!') ? 'selected' : ''; ?>>!
-                </option>
+                <option value="+" <?php echo (isset($operacao_salva) && $operacao_salva == '+') ? 'selected' : ''; ?>>+</option>
+                <option value="-" <?php echo (isset($operacao_salva) && $operacao_salva == '-') ? 'selected' : ''; ?>>-</option>
+                <option value="*" <?php echo (isset($operacao_salva) && $operacao_salva == '*') ? 'selected' : ''; ?>>*</option>
+                <option value="/" <?php echo (isset($operacao_salva) && $operacao_salva == '/') ? 'selected' : ''; ?>>/</option>
+                <option value="^" <?php echo (isset($operacao_salva) && $operacao_salva == '^') ? 'selected' : ''; ?>>^</option>
+                <option value="!" <?php echo (isset($operacao_salva) && $operacao_salva == '!') ? 'selected' : ''; ?>>!</option>
             </select>
 
             <label for="numero2"> Numero 2: </label>
-            <input type="number" name="numero2" id="numero2" style="font-family: Rationale, sans-serif;"
-                value="<?php echo isset($numero2_salvo) ? $numero2_salvo : ''; ?>">
+            <input type="number" name="numero2" id="numero2" style="font-family: Rationale, sans-serif;" value="<?php echo isset($numero2_salvo) ? $numero2_salvo : ''; ?>">
 
-            <button type="submit" name="calcular"
-                style=" background-color:lightgreen; font-family: Rationale, sans-serif;font-size:20px;">CALCULAR</button>
+            <button type="submit" name="calcular" style=" background-color:lightgreen;  border-radius: 10px; font-size:20px;">CALCULAR</button>
 
             <?php
                 include 'funcoes.php';
@@ -158,20 +162,14 @@
 
                 echo "<div class='resposta'><p>{$resposta}</p></div>";
             ?>
-
+        
             <div>
-                <button type="submit" name="salvar"
-                    style=" background-color:lightsteelblue; font-family: Rationale, sans-serif; font-size:20px;">SALVAR</button>
-                <button type="submit" name="pegarValores"
-                    style=" background-color:lightsteelblue; font-family: Rationale, sans-serif; font-size:20px;">PEGAR
-                    VALORES</button>
-                <button type="submit" name="memoria"
-                    style=" background-color:khaki; font-family: Rationale, sans-serif; font-size:20px;">M</button>
-                <button type="submit" name="apagarHistorico"
-                    style=" background-color:tomato; font-family: Rationale, sans-serif; font-size:20px;">APAGAR
-                    HISTORICO</button>
+                <button type="submit" name="salvar" style=" background-color:yellow;  border-radius: 10px; font-size:20px;">SALVAR</button>
+                <button type="submit" name="pegarValores" style=" background-color:white;  border-radius: 10px; font-size:20px;">PEGAR VALORES</button>
+                <button type="submit" name="memoria" style=" background-color:blue;  border-radius: 10px; font-size:20px;">M</button>
+                <button type="submit" name="apagarHistorico" style=" background-color:blue;  border-radius: 10px; font-size:20px;">APAGAR HISTORICO</button>
             </div>
-
+        
         </form>
 
         <h2>Histórico</h2>
@@ -189,5 +187,4 @@
         </div>
     </div>
 </body>
-
 </html>
